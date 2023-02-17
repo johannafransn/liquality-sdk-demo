@@ -37,7 +37,7 @@ const directParams = {
 
 // 1. Setup Service Provider
 const directParams = {
-  baseUrl: `https://liquality-sdk-demo.vercel.app/auth/serviceworker`,
+  baseUrl: `https://liquality-sdk-demo.vercel.app/serviceworker`,
   enableLogging: true,
   networkUrl: "https://goerli.infura.io/v3/a8684b771e9e4997a567bbd7189e0b27",
   network: "testnet" as any,
