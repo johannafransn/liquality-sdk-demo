@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
 import { DisplayWalletValues } from "./DisplayWalletValues";
-import { AuthService } from "@liquality/wallet-sdk";
+import { AuthService, tryRegisterSW } from "@liquality/wallet-sdk";
 import { DataContext } from "../../DataContext";
 
 type Props = {
@@ -13,18 +13,18 @@ export const SignIn: React.FC<Props> = (props) => {
   const { directParams, verifierMap } = props;
   const [tKey, setTKey] = useState<any>({});
   const [password, setPassword] = useState<string>("");
-  const authService = new AuthService();
   const { loginResponse, setLoginResponse } = React.useContext(DataContext);
 
   const logInUsingGoogleSSO = async () => {
-    const response = await authService.loginUsingSSO(tKey, props.verifierMap);
+    const response = await AuthService.loginUsingSSO(tKey, props.verifierMap);
     setLoginResponse(response);
   };
 
   //Init tkey instance
   React.useEffect(() => {
     const init = async () => {
-      const tKeyResponse = await authService.init(props.directParams);
+      const registration = tryRegisterSW("/serviceworker/sw.js");
+      const tKeyResponse = await AuthService.init(props.directParams);
       setTKey(tKeyResponse);
     };
     init();
