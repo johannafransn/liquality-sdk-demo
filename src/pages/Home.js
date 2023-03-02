@@ -72,7 +72,7 @@ export default function Home() {
               />
             </a>
 
-            <a href="https://discord.com/invite/5mgYtuArkh">
+            <a href="https://discord.gg/35yAGaQ3gx">
               <img
                 className="h-11 rounded-lg"
                 src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png"
